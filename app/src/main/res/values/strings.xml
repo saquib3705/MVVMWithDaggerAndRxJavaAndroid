@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">MVVMWithRxjavaDemo</string>
+    <string name="login">Login</string>
+    <string name="enter_mobile_number">Enter mobile number</string>
+    <string name="enter_password">Enter password</string>
+    <string name="enter_valid_password">Enter valid password</string>
+    <string name="enter_valid_mobile">Enter valid mobile number</string>
+    <string name="errorString">No network connection.</string>
+    <string name="network_error">Something went wrong, Please try again.</string>
+</resources>
