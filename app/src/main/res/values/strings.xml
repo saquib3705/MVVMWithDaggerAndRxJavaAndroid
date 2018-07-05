@@ -5,6 +5,6 @@
     <string name="enter_password">Enter password</string>
     <string name="enter_valid_password">Enter valid password</string>
     <string name="enter_valid_mobile">Enter valid mobile number</string>
-    <string name="errorString">No network connection.</string>
-    <string name="network_error">Something went wrong, Please try again.</string>
+    <string name="network_error">No network connection.</string>
+    <string name="errorString">Something went wrong, Please try again.</string>
 </resources>

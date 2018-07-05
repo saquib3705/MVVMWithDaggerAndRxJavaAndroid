@@ -7,6 +7,5 @@ package com.saquib.mvvmwithrxjavademo.utils;
 public enum Status {
     LOADING,
     SUCCESS,
-    ERROR,
-    COMPLETED
+    ERROR
 }

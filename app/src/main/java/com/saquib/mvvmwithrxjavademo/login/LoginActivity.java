@@ -51,8 +51,7 @@ public class LoginActivity extends AppCompatActivity {
 
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(LoginViewModel.class);
 
-        viewModel.loginResponse().observe(this, apiResponse -> consumeResponse(apiResponse));
-
+        viewModel.loginResponse().observe(this, this::consumeResponse);
 
     }
 
@@ -61,7 +60,7 @@ public class LoginActivity extends AppCompatActivity {
     void onLoginClicked() {
         if (isValid()) {
             if (!Constant.checkInternetConnection(this)) {
-                Toast.makeText(LoginActivity.this,getResources().getString(R.string.errorString), Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this,getResources().getString(R.string.network_error), Toast.LENGTH_SHORT).show();
             } else {
                 viewModel.hitLoginApi(phoneNo.getText().toString(), password.getText().toString());
             }

@@ -17,7 +17,6 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
-import io.reactivex.disposables.CompositeDisposable;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import retrofit2.Retrofit;
@@ -32,12 +31,6 @@ public class UtilsModule {
 
     @Provides
     @Singleton
-    CompositeDisposable getCompositeDisposable() {
-        return new CompositeDisposable();
-    }
-
-    @Provides
-    @Singleton
     Gson provideGson() {
         GsonBuilder builder =
                 new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES);
@@ -48,14 +41,12 @@ public class UtilsModule {
     @Singleton
     Retrofit provideRetrofit(Gson gson, OkHttpClient okHttpClient) {
 
-        Retrofit retrofit = new Retrofit.Builder()
+        return new Retrofit.Builder()
                 .baseUrl(Urls.BASE_URL)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .client(okHttpClient)
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
-
-        return retrofit;
     }
 
     @Provides
@@ -80,8 +71,7 @@ public class UtilsModule {
                 .writeTimeout(100, TimeUnit.SECONDS)
                 .readTimeout(300, TimeUnit.SECONDS);
 
-        OkHttpClient client = httpClient.build();
-        return client;
+        return httpClient.build();
     }
 
     @Provides
